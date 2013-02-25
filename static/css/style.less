@@ -1,0 +1,80 @@
+
+@import url(http://fonts.googleapis.com/css?family=Rufina);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+English);
+@import url(http://fonts.googleapis.com/css?family=Marko+One);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+
+.progdesign {
+
+    .base_style() {
+        @import url(normalize.less);
+        font-family: "Lora" serif;
+        font-size: 19px;
+        h1, h2, h3, h4 {
+            font-weight: normal;
+            font-family: "Lora" serif;
+        }
+        h1 {
+            font-size: 41px;
+        }
+        h2 {
+            font-size: 34px;
+        }
+        h3 {
+            font-size: 29px;
+        }
+        h4 {
+            font-size: 23px;
+        }
+    }
+    .base_style();
+
+    body {
+        height: 100%;
+    }
+
+    .mainHorizontalTable {
+        margin: 0 auto;
+        height: 100%;
+        display: table;
+
+        >.contentRow {
+            height: 100%;
+            display: table-row;
+
+            >.contentTable {
+                margin: 0 auto;
+                display: table;
+                height: 100%;
+
+                >.leftAreaCell {
+                    display: table-cell;
+                    width: 200px;
+                    padding: 0 10px;
+                    //height: 1000px;
+                }
+
+                >.rightAreaCell {
+                    display: table-cell;
+                    width: 700px;
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        >.footerRow {
+            height: 50px;
+            display: table-row;
+
+        }
+    }
+
+}
+
+html.progdesign {
+    height: 100%;
+}
