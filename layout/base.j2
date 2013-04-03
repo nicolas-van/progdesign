@@ -13,10 +13,12 @@
     <div class="mainHorizontalTable">
         <div class="contentRow">
             <div class="contentTable">
+                {% if not (hideSideContent is defined) %}
                 <div class="leftAreaCell">
                     {% block sideContent %}
                     {% endblock sideContent %}
                 </div>
+                {% endif %}
                 <div class="rightAreaCell">
                     {% block mainContent %}
                     {% endblock mainContent %}
