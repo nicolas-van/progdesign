@@ -1,7 +1,7 @@
 <%!
     title = ""
     description = ""
-    hideSideContent = False
+    sideContent = False
 %>
 <!DOCTYPE html>
 
@@ -25,7 +25,7 @@
     <div class="mainHorizontalTable">
         <div class="contentRow">
             <div class="contentTable">
-                % if not self.attr.hideSideContent:
+                % if self.attr.sideContent:
                 <div class="leftAreaCell">
                     <%block name="sideContent">
                     </%block>
