@@ -1,5 +1,0 @@
-!!python/unicode 'index.html': [base.j2]
-!!python/unicode 'static/css/normalize.less': []
-!!python/unicode 'static/css/style.less': []
-!!python/unicode 'static/img/ring.svg': []
-!!python/unicode 'static/js/less.js': []
