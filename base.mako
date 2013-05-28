@@ -22,6 +22,9 @@
 </head>
 </body>
 
+    <%block name="beforeContent">
+    </%block>
+
     <div class="mainHorizontalTable">
         <div class="contentRow">
             <div class="contentTable">
@@ -45,6 +48,9 @@
             </div>
         </div>
     </div>
+
+    <%block name="afterContent">
+    </%block>
 
   <!--[if lt IE 8]>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
