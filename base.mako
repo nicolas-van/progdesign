@@ -21,7 +21,7 @@
     </%block>
     <script src="/common/static/js/less.js" type="text/javascript"></script>
 </head>
-</body>
+<body>
 
     <%block name="beforeContent">
     </%block>
