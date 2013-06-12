@@ -4,14 +4,15 @@ import os.path
 import subprocess
 from bottle import response
 
+pygreen.file_exclusion.append("($|\/)_.*")
+
 old_file_renderer = pygreen.file_renderer
 def file_renderer(path):
     if path.split(".")[-1] == "less":
         file_path = os.path.join(pygreen.folder, path)
-        if not os.path.exists(file_path) and os.path.exists(less_path):
-            css = subprocess.check_output(["lessc", less_path])
-            response.content_type = 'text/css'
-            return css
+        css = subprocess.check_output(["lessc", file_path])
+        response.content_type = 'text/css'
+        return css
     return old_file_renderer(path)
 pygreen.file_renderer = file_renderer
 
