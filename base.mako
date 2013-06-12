@@ -16,10 +16,9 @@
     <%block name="favicons">
     <link rel="shortcut icon" href="/common/static/img/icon.ico">
     </%block>
-    <link rel="stylesheet/less" type="text/css" href="/common/static/css/base_style.less" />
+    <link rel="stylesheet" type="text/css" href="/common/static/css/base_style.less" />
     <%block name="head">
     </%block>
-    <script src="/common/static/js/less.js" type="text/javascript"></script>
 </head>
 <body>
 
