@@ -2,13 +2,15 @@
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700);
 @import url(http://fonts.googleapis.com/css?family=EB+Garamond);
 
+@base_font: "Lora", serif;
+@title_font: "EB Garamond", serif;
+
+@base_text_size: 19px;
+@highlight_color: #0063B4;
+@code_color: rgb(238, 238, 238);
+@border_color: rgb(221, 221, 221);
+
 .progdesign {
-
-    @base_font: "Lora", serif;
-    @title_font: "EB Garamond", serif;
-
-    @base_text_size: 19px;
-    @highlight_color: #0063B4;
 
     .txt_sizing(@base_size) {
         font-size: @base_size;
@@ -45,6 +47,7 @@
         }
         .codehilite>pre, pre>code {
             font-size: (@base_text_size * 0.7);
+            background-color: @code_color;
             display: block;
             background: #eee;
             padding: 10px;
@@ -106,4 +109,19 @@
 
 html.progdesign {
     height: 100%;
+}
+
+ul.filesList {
+    list-style: none;
+    display: block;
+    margin: 0 30px;
+    padding: 0;
+    li {
+        display: block;
+        background-color: @code_color;
+        margin: 3px;
+        padding: 3px;
+        border: 1px solid @border_color;
+        font-family: monospace sans-serif;
+    }
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from pygreen import pygreen
+import os
 import os.path
 import subprocess
 import re
@@ -37,6 +38,24 @@ def generate_index(pygreen, files, selector="body", levels=(1, 2)):
         return "<ul>%s</ul>" % tmp
 
     return it(lst)
+
+def generate_file_list(pygreen, folder, reverse=False):
+    folder = folder[1:]
+    folder = os.path.join(pygreen.folder, folder)
+    files = []
+    for dirpath, _, filenames in os.walk(folder):
+        for name in filenames:
+            file_ = os.path.join(dirpath, name)
+            files.append((os.path.relpath(file_, folder), "/" + os.path.relpath(file_, pygreen.folder)))
+    files.sort()
+    if reverse:
+        files.reverse()
+    
+    tmp = ""
+    for i in files:
+        tmp += "<li><a href='%s'>%s</a></li>" % (i[1], i[0])
+    return "<ul class='filesList'>%s</ul>" % tmp
+
 
 if __name__ == "__main__":
     pygreen.file_exclusion.append(r".*\.less")
