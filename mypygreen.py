@@ -12,6 +12,32 @@ def markdown(*args, **kw):
     })
     return markdown(*args, **kw)
 
+def generate_index(pygreen, files, selector="body", levels=(1, 2)):
+    headers = [('h%d' % x) for x in range(levels[0], levels[1] + 1)]
+    from pyquery import PyQuery as pq
+    lst = []
+    for f in files:
+        c = pygreen.file_renderer(f)
+        d = pq(c)
+        d = d(selector)
+        hs = d.find(",".join(headers))
+        for el in [pq(x) for x in hs]:
+            level = int(el[0].tag[1]) - levels[0]
+            text = el.text()
+            id = el.attr("id")
+            select = lambda lst, nb: lst if nb == 0 else select(lst[-1][2], nb - 1)
+            select(lst, level).append((text, "%s#%s" % (f, id), []))
+
+    def it(lst):
+        if len(lst) == 0:
+            return ""
+        tmp = ""
+        for i in lst:
+            tmp += '<li><a href="%s">%s</a>%s</li>' % (i[1], i[0], it(i[2]))
+        return "<ul>%s</ul>" % tmp
+
+    return it(lst)
+
 if __name__ == "__main__":
     pygreen.file_exclusion.append(r".*\.less")
 
