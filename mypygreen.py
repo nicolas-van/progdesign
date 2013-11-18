@@ -58,7 +58,7 @@ def generate_file_list(pygreen, folder, reverse=False):
 
 
 if __name__ == "__main__":
-    pygreen.file_exclusion += [r".*\.less", r"bower.json", r"bower_components/.*"]
+    pygreen.file_exclusion += [r".*\.less", r"bower.json"]
 
     old_file_renderer = pygreen.file_renderer
     def file_renderer(path):
@@ -75,9 +75,9 @@ if __name__ == "__main__":
     def lister():
         for dirpath, dirnames, filenames in os.walk(pygreen.folder):
             for f in filenames:
-                if f.split(".")[-1] == "less" and not re.match(r"(^|.*\/)_.*", f):
-                    absp = os.path.join(dirpath, f)
-                    path = os.path.relpath(absp, pygreen.folder)
+                absp = os.path.join(dirpath, f)
+                path = os.path.relpath(absp, pygreen.folder)
+                if path.split(".")[-1] == "less" and not re.match(r"((^|.*\/)_.*)|((^|.*/)bower_components/.*)", path):
                     css_path = "%s.css" % ".".join(path.split(".")[0:-1])
                     yield css_path
     pygreen.file_listers.append(lister)
