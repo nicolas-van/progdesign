@@ -58,7 +58,7 @@ def generate_file_list(pygreen, folder, reverse=False):
 
 
 if __name__ == "__main__":
-    pygreen.file_exclusion.append(r".*\.less")
+    pygreen.file_exclusion += [r".*\.less", r"bower.json", r"bower_components/.*"]
 
     old_file_renderer = pygreen.file_renderer
     def file_renderer(path):
