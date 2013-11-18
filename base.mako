@@ -25,35 +25,33 @@
     <%block name="beforeContent">
     </%block>
 
-    <div class="mainHorizontalTable">
-        <div class="contentRow">
-            <div class="contentTable">
-                % if self.attr.sideContent:
-                <div class="leftAreaCell">
-                    <%block name="sideContent">
-                    </%block>
-                </div>
-                %endif
-                <div class="rightAreaCell">
-                    <%block name="headerMainContent">
-                    </%block>
-                    <%block name="mainContent">
-                    </%block>
-                </div>
+    <div class="container ${'' if self.attr.sideContent else 'noMenu'}">
+
+        <div class="row">
+            % if self.attr.sideContent:
+            <div class="col-md-3">
+                <%block name="sideContent">
+                </%block>
             </div>
-        </div>
-        <div class="footerRow">
-            <div class="footerCell">
+            %endif
+            <div class="${'col-md-9' if self.attr.sideContent else 'col-md-12'}">
+                <%block name="headerMainContent">
+                </%block>
+                <%block name="mainContent">
+                </%block>
+            </div>
+            <div class="footerRow col-md-12">
                 Copyright © 2013 <a href="https://github.com/nicolas-van">Nicolas Vanhoren</a><br />
                 All Rights Reserved
             </div>
         </div>
+
     </div>
 
     <%block name="afterContent">
     </%block>
 
-  <!--[if lt IE 8]>
+    <!--[if lt IE 8]>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
     <script>
         // You may want to place these lines inside an onload handler
@@ -61,6 +59,6 @@
         mode: "overlay"
         });
     </script>
-  <![endif]-->
+    <![endif]-->
 </body>
 </html>

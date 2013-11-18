@@ -18,61 +18,18 @@ h3 {
     font-size: (@font-size-base * 0.7);
 }
 
-.progdesign {
-
-    body {
-        height: 100%;
+.container {
+    max-width: 960px;
+    &.noMenu {
+        max-width: 740px;
     }
-
-    .mainHorizontalTable {
-        margin: 0 auto;
-        height: 100%;
-        display: table;
-
-        >.contentRow {
-            height: 100%;
-            display: table-row;
-
-            >.contentTable {
-                margin: 0 auto;
-                display: table;
-                height: 100%;
-
-                >.leftAreaCell {
-                    display: table-cell;
-                    box-sizing: border-box;
-                    width: 220px;
-                    padding: 20px 10px;
-                    vertical-align: top;
-                    //height: 1000px;
-                }
-
-                >.rightAreaCell {
-                    display: table-cell;
-                    box-sizing: border-box;
-                    width: 740px;
-                    padding: 0 20px;
-                    vertical-align: top;
-                }
-            }
-        }
-
-        >.footerRow {
-            display: table-row;
-            >.footerCell {
-                display: table-cell;
-                font-size: 0.8em;
-                text-align: center;
-                color: rgb(127, 127, 127);
-                padding: 20px;
-            }
-        }
-    }
-
 }
 
-html.progdesign {
-    height: 100%;
+.footerRow {
+    font-size: 0.8em;
+    text-align: center;
+    color: rgb(127, 127, 127);
+    padding: 20px;
 }
 
 ul.filesList {
