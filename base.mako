@@ -25,28 +25,33 @@
     <%block name="beforeContent">
     </%block>
 
-    <div class="container ${'' if self.attr.sideContent else 'noMenu'}">
+    <div class="wrap">
 
-        <div class="row">
-            % if self.attr.sideContent:
-            <div class="col-md-3">
-                <%block name="sideContent">
-                </%block>
+        <div class="container ${'' if self.attr.sideContent else 'noMenu'}">
+
+            <div class="row">
+                % if self.attr.sideContent:
+                <div class="col-md-3">
+                    <%block name="sideContent">
+                    </%block>
+                </div>
+                %endif
+                <div class="${'col-md-9' if self.attr.sideContent else 'col-md-12'}">
+                    <%block name="headerMainContent">
+                    </%block>
+                    <%block name="mainContent">
+                    </%block>
+                </div>
             </div>
-            %endif
-            <div class="${'col-md-9' if self.attr.sideContent else 'col-md-12'}">
-                <%block name="headerMainContent">
-                </%block>
-                <%block name="mainContent">
-                </%block>
-            </div>
-            <div class="footerRow col-md-12">
-                Copyright © 2013 <a href="https://github.com/nicolas-van">Nicolas Vanhoren</a><br />
-                All Rights Reserved
-            </div>
+
         </div>
 
     </div>
+
+    <footer class="footerRow">
+        Copyright © 2013 <a href="https://github.com/nicolas-van">Nicolas Vanhoren</a><br />
+        All Rights Reserved
+    </footer>
 
     <%block name="afterContent">
     </%block>

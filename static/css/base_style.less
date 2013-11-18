@@ -5,6 +5,7 @@
 @import url(_pygments.less);
 @import url(../../bower_components/bootstrap/less/bootstrap.less);
 
+// basic customization of style
 @brand-primary: #0063B4;
 @font-family-serif: "Lora", serif;
 @font-family-base: @font-family-serif;
@@ -18,6 +19,7 @@ h3 {
     font-size: (@font-size-base * 0.7);
 }
 
+// container width
 .container {
     max-width: 960px;
     &.noMenu {
@@ -25,13 +27,31 @@ h3 {
     }
 }
 
+//sticky footer tricks
+@footer-height: 82px;
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -@footer-height;
+  padding: 0 0 @footer-height;
+}
+
 .footerRow {
+    height: @footer-height;
     font-size: 0.8em;
     text-align: center;
     color: rgb(127, 127, 127);
     padding: 20px;
 }
 
+// files explorer
 ul.filesList {
     list-style: none;
     display: block;
@@ -47,6 +67,7 @@ ul.filesList {
     }
 }
 
+// horizontal menu
 .horizontalMenu {
     text-align: center;
     margin: 10px;
