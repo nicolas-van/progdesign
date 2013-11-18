@@ -31,12 +31,12 @@
 
             <div class="row">
                 % if self.attr.sideContent:
-                <div class="col-md-3">
+                <div class="leftAreaCell col-md-3">
                     <%block name="sideContent">
                     </%block>
                 </div>
                 %endif
-                <div class="${'col-md-9' if self.attr.sideContent else 'col-md-12'}">
+                <div class="rightAreaCell ${'col-md-9' if self.attr.sideContent else 'col-md-12'}">
                     <%block name="headerMainContent">
                     </%block>
                     <%block name="mainContent">
