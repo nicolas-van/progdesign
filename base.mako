@@ -16,7 +16,9 @@
     <%block name="favicons">
     <link rel="shortcut icon" href="/common/static/img/icon.ico">
     </%block>
+    <%block name="style">
     <link rel="stylesheet" type="text/css" href="/common/static/css/base_style.css" />
+    </%block>
     <%block name="head">
     </%block>
 </head>
